@@ -1,47 +1,38 @@
-#include <stdlib.h>
+#include "main.h"
 #include <stdio.h>
-#include "holberton.h"
+#include <stdlib.h>
+
 /**
- * _realloc - reallocates old to new, set conditions from problem
- * returning dest w/ size of malloc new_size, set src as ptr
- * @ptr: pointer to memory prev alloc, must free end
- * @old_size: input old
- * @new_size: input new
- * Return: 0
+ * print_str - Prints an array of string
+ * @tab: The array to print
+ *
+ * Return: nothing
  */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+void print_str(char **str)
 {
-	char *dest, *src;
-	unsigned int i;
+    int i;
 
-	if (new_size == old_size)
-		return (ptr);
+    for (i = 0; str[i] != NULL; ++i)
+    {
+        printf("%s\n", str[i]);
+    }
+}
 
-	if (ptr == NULL)
-	{
-		ptr = malloc(new_size);
-		if (ptr == NULL)
-		{
-			return (NULL);
-		}
-		return (ptr);
-	}
+/**
+ * main - check the code for ALX School students.
+ *
+ * Return: 1 if an error occurred, 0 otherwise
+ */
+int main(void)
+{
+    char **strtow(char *str);
 
-	if (new_size == 0 && ptr != NULL)
-	{
-		free(ptr);
-		return (NULL);
-	}
-
-	dest = malloc(new_size);
-	if (dest == NULL)
-		return (NULL);
-
-	src = ptr;
-
-	for (i = 0; i < new_size && i < old_size; i++)
-		dest[i] = src[i];
-	free(ptr);
-
-	return (dest);
+    str = strtow("      ALX School         #cisfun      ");
+    if (str == NULL)
+    {
+        printf("Failed\n");
+        return (1);
+    }
+    print_str(str);
+    return (0);
 }
