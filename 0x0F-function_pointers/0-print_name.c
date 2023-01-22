@@ -10,10 +10,33 @@
  */
 void print_name(char *name, void (*f)(char *))
 {
-	if (name != 0 && f != 0)
-		f(name);
+	printf("Hello, my name is %s\n", name);
 }
+/**
+ * print_name_uppercase - print a name in uppercase
+ * @name: name of the person
+ *
+ * Return: Nothing.
+ */
+void print_name_uppercase(char *name)
+{
+    unsigned int i;
 
+    printf("Hello, my uppercase name is ");
+    i = 0;
+    while (name[i])
+    {
+        if (name[i] >= 'a' && name[i] <= 'z')
+        {
+            putchar(name[i] + 'A' - 'a');
+        }
+        else
+        {
+            putchar(name[i]);
+        }
+        i++;
+    }
+}
 /**
  * main - check the code
  *
@@ -24,4 +47,4 @@ int main(void)
     print_name("Bob", print_name);
         printf("\n");
     return (0);
-}
+} 
